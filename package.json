@@ -1,0 +1,56 @@
+{
+  "name": "manga-tracker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.4.2",
+  "engines": {
+    "node": ">=22.15.0"
+  },
+  "scripts": {
+    "dev": "waku dev",
+    "build": "waku build",
+    "start": "waku start",
+    "typecheck": "waku router typegen && tsc --noEmit",
+    "typegen": "waku router typegen",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "lint": "biome lint .",
+    "verify": "waku router typegen && biome check . && tsc --noEmit && vitest run && waku build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "db:checkpoint": "tsx scripts/checkpoint.ts",
+    "db:push-turso": "tsx scripts/push-to-turso.ts",
+    "db:studio": "drizzle-kit studio",
+    "enrich:library": "tsx scripts/enrich-library.ts",
+    "sync:aliases": "tsx scripts/sync-aliases.ts",
+    "import:vault-db": "tsx scripts/import-vault-to-db.ts",
+    "vault:export": "tsx scripts/import-vault.ts"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.18.0",
+    "better-auth": "^1.7.25",
+    "drizzle-orm": "^0.45.4",
+    "react": "~19.3.1",
+    "react-dom": "~19.3.1",
+    "react-server-dom-webpack": "~19.3.1",
+    "waku": "^1.0.0-rc.5",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.8",
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "drizzle-kit": "^0.31.11",
+    "tailwindcss": "^4.3.5",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "vitest": "^5.1.0"
+  }
+}

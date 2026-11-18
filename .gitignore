@@ -1,0 +1,16 @@
+node_modules
+dist
+.waku
+src/pages.gen.ts
+local.db
+local.db-*
+vault-export.json
+payload.json
+cookies.txt
+prod-cookies.txt
+export-test.*
+.playwright-mcp
+.env
+.env.local
+*.log
+.DS_Store
