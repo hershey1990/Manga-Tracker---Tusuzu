@@ -5,11 +5,14 @@ if (existsSync('.env')) {
   loadEnvFile('.env');
 }
 
-const rawUrl = process.env.TURSO_DATABASE_URL ?? 'file:./local.db';
+const rawUrl =
+  process.env.TURSO_DATABASE_URL ??
+  process.env.TURSO_DATABASE_URL_PROD ??
+  'file:./local.db';
 const isRemote = !rawUrl.startsWith('file:');
 
 if (isRemote) {
-  const authToken = process.env.TURSO_AUTH_TOKEN;
+  const authToken = process.env.TURSO_AUTH_TOKEN ?? process.env.TURSO_TOKEN;
   if (!authToken) {
     console.error('Falta TURSO_AUTH_TOKEN para migrar Turso.');
     process.exit(1);

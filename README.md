@@ -53,6 +53,9 @@ Abre `http://localhost:3000`, crea una cuenta y empieza a añadir series.
 | `BETTER_AUTH_SECRET` | Secreto de al menos 32 caracteres. Obligatorio.              |
 | `BETTER_AUTH_URL`    | URL pública de la app (para cookies y origen).               |
 
+Se aceptan como alias `TURSO_DATABASE_URL_PROD` y `TURSO_TOKEN`; las variables
+`TURSO_DATABASE_URL`/`TURSO_AUTH_TOKEN` tienen prioridad.
+
 ## Calidad
 
 El **typecheck es obligatorio**: ningún cambio se considera terminado si `bun run typecheck` falla. Antes de commitear:

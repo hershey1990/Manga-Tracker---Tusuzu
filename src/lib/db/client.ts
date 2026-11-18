@@ -1,7 +1,10 @@
 import type { LibSQLDatabase } from 'drizzle-orm/libsql';
 import * as schema from './schema';
 
-const rawUrl = process.env.TURSO_DATABASE_URL ?? 'file:./local.db';
+const rawUrl =
+  process.env.TURSO_DATABASE_URL ??
+  process.env.TURSO_DATABASE_URL_PROD ??
+  'file:./local.db';
 
 export const isRemoteDatabase = !rawUrl.startsWith('file:');
 
@@ -15,7 +18,7 @@ const createDatabase = async () => {
       import('@libsql/client/web'),
       import('drizzle-orm/libsql'),
     ]);
-    const authToken = process.env.TURSO_AUTH_TOKEN;
+    const authToken = process.env.TURSO_AUTH_TOKEN ?? process.env.TURSO_TOKEN;
     const client = createClient(
       authToken ? { url: rawUrl, authToken } : { url: rawUrl },
     );
