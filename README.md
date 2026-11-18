@@ -240,6 +240,7 @@ La desactivación se guarda en `user.disabled`; el hook de sesión de Better Aut
 | `bun run verify`              | check + typecheck + tests + build.                             |
 | `bun run db:generate`         | Genera migración tras cambiar `src/lib/db/schema.ts`.          |
 | `bun run db:migrate`          | Aplica migraciones (local o Turso según env).                  |
+| `bun run db:migrate:turso`    | Aplica migraciones contra `TURSO_DATABASE_URL_PROD`.           |
 | `bun run db:checkpoint`       | Consolida el WAL antes de copiar `local.db`.                   |
 | `bun run db:push-turso`       | Copia todas las tablas locales a Turso.                        |
 | `bun run enrich:library`      | Copia fichas de AniList a tu biblioteca por lotes.             |

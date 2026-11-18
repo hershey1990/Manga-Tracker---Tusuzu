@@ -22,6 +22,7 @@
     "test:watch": "vitest",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx scripts/migrate.ts",
+    "db:migrate:turso": "tsx scripts/migrate.ts --turso",
     "db:checkpoint": "tsx scripts/checkpoint.ts",
     "db:push-turso": "tsx scripts/push-to-turso.ts",
     "db:studio": "drizzle-kit studio",

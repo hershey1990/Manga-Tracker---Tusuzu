@@ -201,6 +201,7 @@ sesiones, eliminar), duplicados (elegir destino y fusionar), metadatos
 - Vercel detecta Waku (`VERCEL=1`) y usa el runtime `nodejs22.x`.
 - Variables: `TURSO_DATABASE_URL`, `TURSO_AUTH_TOKEN`, `BETTER_AUTH_SECRET`,
   `BETTER_AUTH_URL`. También se aceptan `TURSO_DATABASE_URL_PROD` y
-  `TURSO_TOKEN` como fallback.
+  `TURSO_TOKEN` como fallback. Para migrar Turso con el `.env` híbrido:
+  `bun run db:migrate:turso`.
 - Migraciones contra Turso: `bun run db:migrate` con esas variables.
 - Tras cambios de esquema, aplica migraciones antes del deploy.

@@ -5,10 +5,15 @@ if (existsSync('.env')) {
   loadEnvFile('.env');
 }
 
-const rawUrl =
-  process.env.TURSO_DATABASE_URL ??
-  process.env.TURSO_DATABASE_URL_PROD ??
-  'file:./local.db';
+const useTurso = process.argv.includes('--turso');
+
+const rawUrl = useTurso
+  ? (process.env.TURSO_DATABASE_URL_PROD ??
+    process.env.TURSO_DATABASE_URL ??
+    'file:./local.db')
+  : (process.env.TURSO_DATABASE_URL ??
+    process.env.TURSO_DATABASE_URL_PROD ??
+    'file:./local.db');
 const isRemote = !rawUrl.startsWith('file:');
 
 if (isRemote) {
